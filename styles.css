@@ -79,3 +79,141 @@
     object-fit: contain;
   }
 }
+
+/* =========================================================
+   CASE STUDIES — FULL-WIDTH RECTANGULAR LAYOUT
+   ========================================================= */
+
+/* One case study per row */
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+/* Wide rectangular case-study card */
+.case-card {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding: 32px;
+}
+
+/* Remove the black background from DriveStylish */
+.case-card.dark-card {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+/* Keep DriveStylish text readable */
+.case-card.dark-card .case-top,
+.case-card.dark-card h3,
+.case-card.dark-card p,
+.case-card.dark-card .role,
+.case-card.dark-card .industry {
+  color: inherit;
+}
+
+.case-card.dark-card .industry {
+  color: #777;
+}
+
+/* Make the statistics area consistent across every case study */
+.case-card .case-stats {
+  border-radius: 12px;
+}
+
+/* =========================================================
+   LANDSCAPE EVIDENCE IMAGES
+   ========================================================= */
+
+/* Single evidence screenshot */
+.case-card .evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* Two evidence screenshots */
+.case-card .evidence-row img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* Keep two-image evidence balanced */
+.case-card .evidence-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Evidence captions */
+.case-card .evidence small,
+.case-card .evidence-row small {
+  display: block;
+  margin-top: 8px;
+}
+
+/* =========================================================
+   RECTANGULAR CARD CONTENT
+   ========================================================= */
+
+/* Give the cards a wider, less vertically stacked appearance */
+.case-card .case-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* For cards with only 2–3 metrics */
+.case-card .case-stats:has(> div:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-card .case-stats:has(> div:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .case-card {
+    padding: 24px;
+  }
+
+  .case-card .case-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .case-card .evidence-row {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .case-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .case-card .case-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+}
