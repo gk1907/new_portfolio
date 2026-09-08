@@ -3,3 +3,79 @@
 @media(max-width:900px){.nav{display:none}.hero{grid-template-columns:1fr;padding-top:65px}.metrics-grid{grid-template-columns:repeat(2,1fr)}.case-grid{grid-template-columns:1fr}.cap-grid{grid-template-columns:1fr 1fr}.channel-grid{grid-template-columns:1fr 1fr}.section-head{align-items:start;flex-direction:column}.client-row{grid-template-columns:1fr}.client-row.head{display:none}.personal-card{grid-template-columns:1fr}.personal-number{border-left:0;border-top:1px solid #3a3a3d;padding:25px 0 0}.footer{flex-direction:column}}
 @media(max-width:560px){.container{width:min(calc(100% - 24px),var(--max))}.site-header{padding:0 14px}.nav-cta{display:none}.hero{min-height:auto;padding:58px 0}.hero-text{font-size:17px}.hero-proof{padding:24px}.hero-number{font-size:62px}.metrics-grid,.cap-grid,.channel-grid{grid-template-columns:1fr}.metric{min-height:auto}.section{padding:70px 0}.section-head h2{font-size:42px}.case-card{padding:22px}.case-card h3{font-size:30px}.evidence{margin:18px -22px -22px}.evidence-row{margin:18px -22px -22px;grid-template-columns:1fr}.evidence-row img{height:auto}.contact-card{padding:44px 24px}.contact-card h2{font-size:52px}.footer{padding-bottom:20px}}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.gallery-grid figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}.gallery-grid img{width:100%;height:230px;object-fit:cover;object-position:top}.gallery-grid figcaption{padding:14px 16px}.gallery-grid figcaption b{display:block;font-size:13px}.gallery-grid figcaption span{display:block;color:var(--muted);font-size:11px;margin-top:3px}@media(max-width:900px){.gallery-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.gallery-grid{grid-template-columns:1fr}.gallery-grid img{height:auto}}
+
+/* ===== CASE STUDY VISUAL UPDATE ===== */
+
+/* Keep every case study on the same light background */
+.case-card.dark-card {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+/* Keep DriveStylish text readable on the common light background */
+.dark-card .case-top,
+.dark-card .industry,
+.dark-card .role,
+.dark-card p {
+  color: inherit;
+}
+
+.dark-card .industry {
+  color: #777;
+}
+
+.dark-card .case-stats {
+  background: var(--line);
+  border-color: var(--line);
+}
+
+.dark-card .case-stats div {
+  background: var(--card);
+}
+
+.dark-card .evidence-row {
+  background: #f0efe9;
+  border-color: var(--line);
+}
+
+/* Make evidence screenshots landscape rectangles instead of square/cropped */
+.evidence img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+}
+
+/* Two screenshots inside a case study */
+.evidence-row img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+}
+
+/* Give every case study a consistent rectangular visual style */
+.case-card {
+  border-radius: 18px;
+}
+
+/* Keep the evidence area clean and consistent */
+.evidence,
+.evidence-row {
+  border-radius: 0;
+}
+
+/* On smaller screens, let screenshots use their natural landscape shape */
+@media (max-width: 560px) {
+  .evidence img,
+  .evidence-row img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+}
